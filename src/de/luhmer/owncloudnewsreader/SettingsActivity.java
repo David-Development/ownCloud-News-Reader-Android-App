@@ -67,6 +67,8 @@ public class SettingsActivity extends PreferenceActivity {
 		// Add 'general' preferences.
 		addPreferencesFromResource(R.xml.pref_general);
 
+        /*//TODO comment this out
+
 		// Add 'notifications' preferences, and a corresponding header.
 		PreferenceCategory fakeHeader = new PreferenceCategory(this);
 		fakeHeader.setTitle(R.string.pref_header_notifications);
@@ -78,6 +80,7 @@ public class SettingsActivity extends PreferenceActivity {
 		fakeHeader.setTitle(R.string.pref_header_data_sync);
 		getPreferenceScreen().addPreference(fakeHeader);
 		addPreferencesFromResource(R.xml.pref_data_sync);
+        */
 
 		// Bind the summaries of EditText/List/Dialog/Ringtone preferences to
 		// their values. When their values change, their summaries are updated
@@ -88,8 +91,8 @@ public class SettingsActivity extends PreferenceActivity {
 		
 		
 		//bindPreferenceSummaryToValue(findPreference("example_list"));
-		bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));
-		bindPreferenceSummaryToValue(findPreference("sync_frequency"));
+		//bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));//TODO comment this out
+		//bindPreferenceSummaryToValue(findPreference("sync_frequency"));//TODO comment this out
 	}
 
 	/** {@inheritDoc} */
