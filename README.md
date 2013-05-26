@@ -1,5 +1,5 @@
-ownCloud-News-Reader-Android-App
+Important !
 ================================
 
-This repo moved to:
+This repo is moved to:
 https://github.com/owncloud/News-Android-App
