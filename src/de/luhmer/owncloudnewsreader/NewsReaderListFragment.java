@@ -245,6 +245,10 @@ public class NewsReaderListFragment extends Fragment implements OnCreateContextM
 			Log.d(TAG, "onAsyncTask_GetFeeds Finished");
 
             UpdateSyncButtonLayout();
+
+            NewsReaderListActivity nlActivity = (NewsReaderListActivity) getActivity();
+            nlActivity.UpdateItemList();
+
 			//fireUpdateFinishedClicked();
 		}
 	};

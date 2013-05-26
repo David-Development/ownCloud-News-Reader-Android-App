@@ -35,7 +35,7 @@ public class NewsReaderListActivity extends FragmentActivity implements
 	 * Whether or not the activity is in two-pane mode, i.e. running on a tablet
 	 * device.
 	 */
-	private boolean mTwoPane;	
+	private boolean mTwoPane;
 	MenuItem menuItemUpdater;
 	IabHelper mHelper;
 	static final String TAG = "NewsReaderListActivity";
@@ -163,6 +163,17 @@ public class NewsReaderListActivity extends FragmentActivity implements
 			startActivity(detailIntent);
 		}
 	}
+
+
+    public void UpdateItemList()//Only in use on Tablets
+    {
+        if(mTwoPane)
+        {
+            NewsReaderDetailFragment nrD = (NewsReaderDetailFragment) getSupportFragmentManager().findFragmentById(R.id.newsreader_detail_container);
+            if(nrD != null)
+                nrD.lvAdapter.changeCursor(nrD.getRightCusor());
+        }
+    }
 
 
     public void UpdateButtonSync()

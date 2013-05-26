@@ -2,6 +2,7 @@ package de.luhmer.owncloudnewsreader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
@@ -65,11 +66,8 @@ public class NewsReaderDetailFragment extends ListFragment {
 				
 		//lvAdapter = new Subscription_ListViewAdapter(this);
 		try
-		{	
-			if(idSubscription != null)
-				lvAdapter = new NewsListCursorAdapter(getActivity(), dbConn.getAllFeedsForSubscription(idSubscription));						
-			else if(idFolder != null)
-				lvAdapter = new NewsListCursorAdapter(getActivity(), dbConn.getAllFeedsForFolder(idFolder));
+		{
+			lvAdapter = new NewsListCursorAdapter(getActivity(), getRightCusor());
 			setListAdapter(lvAdapter);
 		}
 		catch(Exception ex)
@@ -77,6 +75,16 @@ public class NewsReaderDetailFragment extends ListFragment {
 			ex.printStackTrace();
 		}
 	}
+
+    public Cursor getRightCusor()
+    {
+        if(idSubscription != null)
+            return dbConn.getAllFeedsForSubscription(idSubscription);
+        else if(idFolder != null)
+            return dbConn.getAllFeedsForFolder(idFolder);
+        return null;
+    }
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
