@@ -112,11 +112,12 @@ public class InsertIntoDatabase {
         {
             Boolean skipReset = false;
             if(files.size() > 0)
+            {
                 if(files.get(0).getStarred())
                     skipReset = true;
-
-            if(!skipReset)
-                dbConn.resetRssItemsDatabase();
+                if(!skipReset)
+                    dbConn.resetRssItemsDatabase();
+            }
 
             for (RssFile rssFile : files) {
                 String FeedId_Db = dbConn.getRowIdBySubscriptionID(String.valueOf(rssFile.getFeedID()));
